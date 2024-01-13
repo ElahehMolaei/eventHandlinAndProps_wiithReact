@@ -6,37 +6,15 @@ import Timer from './Timer'
 import './style.css'
 
 class App extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            s: "شروع"
-        }
-    }
-    clkOnStart = () => {
-        this.setState({
-            s: "توقف"
-        })
-    }
-    clkOnStop = () => {
-        this.setState({
-            s: "ادامه"
-     })
-     }
-    clkOnResume = () => {
-            this.setState({
-                s: "توقف"
-            })
-    }
+    // constructor() {
+    //    super();
+    // }
+   
         render() {
             return (
                 <div className='main'>
                     <Hello />
-                    <Timer
-                        s={this.state.s}
-                        clkOnStart={this.clkOnStart}
-                        clkOnStop={this.clkOnStop}
-                        clkOnResume={this.clkOnResume}
-                    />
+                    <Timer />
                 </div>
             )
         }

@@ -14,35 +14,37 @@ class Timer extends React.Component {
         };
     }
     componentDidMount() {
-        
+        this.startInterval();
+    }
+    startInterval = () => {
+        interval = setInterval(() => {
+            this.setState(
+                { time: this.state.time - 1 }
+            )
+        }, 1000);
+    }
+    stopInterval = () => {
+     clearInterval(interval)
     }
     componentDidUpdate() {
         if (this.state.time === 0) {
-            clearInterval(interval)
-            alert('finish')
+            this.stopInterval();
+            alert('finish!')
         }
     }
-    onbtnclk=()=>{
-        let but = document.getElementById('btn')
-        if(but.textContent==="شروع" || but.textContent==="ادامه"){
-            this.props.clkOnStart()
-            interval = setInterval(() => {
-                this.setState(
-                    { time: this.state.time-1 }
-                )
-            }, 1000);
-        }
-        else if(but.textContent==="توقف"){
-            this.props.clkOnStop()
-        }
-    }
+
     render() {
         return (
             <div>
                 <div className='timer'>
                     it is {this.state.time}
                 </div>
-                <button id='btn' onClick={this.onbtnclk}>{this.props.s}</button>
+                {/* <button></button> */}
+                <div className='button_box'>
+                    <button className='action_button start_button' onClick={this.startInterval}>start</button>
+                    <button className='action_button stop_button' onClick={this.stopInterval}>stop</button>
+                    <button className='action_button reset_button'>reset</button>
+                </div>
             </div>
         )
     }
