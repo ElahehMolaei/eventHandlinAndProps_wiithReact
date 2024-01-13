@@ -1,0 +1,21 @@
+.main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: bisque;
+}
+
+.timer {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 50px white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: chocolate;
+    color: gold;
+}
